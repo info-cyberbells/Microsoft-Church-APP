@@ -1,0 +1,281 @@
+2024-11-30 15:24:34,137 [INFO] app.py:114 - Active clients: []
+2024-11-30 15:24:34,139 [INFO] app.py:475 - Starting Flask application
+2024-11-30 15:24:38,265 [INFO] app.py:201 - Join live page requested
+2024-11-30 15:24:39,639 [INFO] app.py:196 - Go live page requested
+2024-11-30 15:24:49,196 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:50,360 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:51,262 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:52,239 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:53,337 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:54,312 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:55,384 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:56,096 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:57,230 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:58,204 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:59,445 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:24:59,697 [ERROR] app.py:253 - Speech recognition error: Exception with error code: 
+[CALL STACK BEGIN]
+
+    > pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - pal_string_to_wstring
+    - recognizer_create_speech_recognizer_from_config
+    - recognizer_create_speech_recognizer_from_config
+
+[CALL STACK END]
+
+Exception with an error code: 0xa (SPXERR_INVALID_HEADER)
+2024-11-30 15:25:04,140 [INFO] app.py:114 - Active clients: []

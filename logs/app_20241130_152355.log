@@ -1,0 +1,7 @@
+2024-11-30 15:23:55,038 [INFO] app.py:114 - Active clients: []
+2024-11-30 15:23:55,038 [INFO] app.py:475 - Starting Flask application
+2024-11-30 15:23:55,573 [INFO] app.py:114 - Active clients: []
+2024-11-30 15:23:55,585 [INFO] app.py:475 - Starting Flask application
+2024-11-30 15:23:59,502 [INFO] app.py:201 - Join live page requested
+2024-11-30 15:24:04,646 [INFO] app.py:201 - Join live page requested
+2024-11-30 15:24:06,236 [INFO] app.py:196 - Go live page requested
