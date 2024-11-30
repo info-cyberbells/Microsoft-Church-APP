@@ -3,7 +3,6 @@ flask-cors==4.0.0
 azure-cognitiveservices-speech==1.31.0
 waitress==2.1.2
 cachetools==5.3.1
-aiohttp==3.8.6
 werkzeug==2.3.7
 python-dotenv==1.0.0
 asyncio==3.4.3
