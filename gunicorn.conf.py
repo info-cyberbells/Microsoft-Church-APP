@@ -1,7 +1,9 @@
 import os
 
-bind = f"0.0.0.0:{os.environ.get('PORT', '8000')}"
+bind = "0.0.0.0:8000"
 workers = 4
-timeout = 600
-keepalive = 75
-worker_class = 'sync'
+timeout = 120
+keepalive = 60
+errorlog = "-"
+accesslog = "-"
+capture_output = True
