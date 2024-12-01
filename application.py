@@ -482,20 +482,16 @@ def health_check():
 if __name__ == '__main__':
     try:
         logger.info("Starting Flask application")
-        if os.environ.get('WEBSITE_SITE_NAME'):  # Check if running on Azure
-            port = int(os.environ.get('PORT', 8000))
-            app.config['AZURE_WEBAPP'] = True
-            serve(app, 
-                host='0.0.0.0',
-                port=port,
-                threads=8,
-                url_scheme='https',
-                channel_timeout=300,
-                cleanup_interval=30,
-                outbuf_overflow=104857600)
-        else:
-            # Development mode
-            app.run(host='127.0.0.1', port=5000, debug=True)
+        port = int(os.environ.get('PORT', 8000))
+        app.config['AZURE_WEBAPP'] = True
+        serve(app, 
+            host='0.0.0.0',  # This is critical for container environments
+            port=port,
+            threads=8,
+            url_scheme='https',
+            channel_timeout=300,
+            cleanup_interval=30,
+            outbuf_overflow=104857600)
     except Exception as e:
         logger.error(f"Application startup error: {str(e)}", exc_info=True)
         cleanup()
