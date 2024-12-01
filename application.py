@@ -482,10 +482,13 @@ def health_check():
 if __name__ == '__main__':
     try:
         logger.info("Starting Flask application")
-        port = int(os.environ.get('PORT', 8000))
+        # Use environment variable for port with fallback to 8000
+        port = int(os.environ.get('WEBSITES_PORT', 8000))
         app.config['AZURE_WEBAPP'] = True
+        
+        # Configure Waitress server with proper host binding
         serve(app, 
-            host='0.0.0.0',  # This is critical for container environments
+            host='0.0.0.0',  # Enable external connections
             port=port,
             threads=8,
             url_scheme='https',
