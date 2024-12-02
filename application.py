@@ -30,21 +30,42 @@ from queue import Queue
 executor = ThreadPoolExecutor(max_workers=10)
 # Configure logging for Azure App Service
 def setup_logging():
-    log_path = os.environ.get('LOG_PATH', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs'))
-    if not os.path.exists(log_path):
-        os.makedirs(log_path, exist_ok=True)
+    # Use Azure's default log path or fall back to a temp directory
+    log_path = os.environ.get('HOME', '/tmp') + '/LogFiles'
+    os.makedirs(log_path, exist_ok=True)
     
-    log_file = os.path.join(log_path, f'app_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+    current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     
+    # Configure logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s [%(levelname)s] %(message)s',
         handlers=[
             logging.StreamHandler(sys.stdout),
-            logging.FileHandler(log_file)
+            logging.FileHandler(os.path.join(log_path, f'app_{current_time}.log'), mode='a')
         ]
     )
-    return logging.getLogger(__name__)
+    
+    # Create a logger instance
+    logger = logging.getLogger(__name__)
+    
+    # Remove any existing handlers
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
+    
+    # Add handlers
+    file_handler = logging.FileHandler(os.path.join(log_path, f'app_{current_time}.log'))
+    console_handler = logging.StreamHandler(sys.stdout)
+    
+    # Set formatter
+    formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s')
+    file_handler.setFormatter(formatter)
+    console_handler.setFormatter(formatter)
+    
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
 
 # Initialize logger
 logger = setup_logging()
