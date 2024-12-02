@@ -501,7 +501,7 @@ def health_check():
 if __name__ == '__main__':
     try:
         logger.info("Starting Flask application")
-        port = int(os.environ.get('PORT', 8000))
+        port = int(os.environ.get('PORT', 7676))
         app.config['AZURE_WEBAPP'] = True
         
         if os.environ.get('WEBSITE_SITE_NAME'):  # Running on Azure
