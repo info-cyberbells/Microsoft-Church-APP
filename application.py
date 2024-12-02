@@ -28,7 +28,26 @@ import base64
 from queue import Queue
 
 executor = ThreadPoolExecutor(max_workers=10)
+# Configure logging for Azure App Service
+def setup_logging():
+    log_path = os.environ.get('LOG_PATH', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs'))
+    if not os.path.exists(log_path):
+        os.makedirs(log_path, exist_ok=True)
+    
+    log_file = os.path.join(log_path, f'app_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s [%(levelname)s] %(message)s',
+        handlers=[
+            logging.StreamHandler(sys.stdout),
+            logging.FileHandler(log_file)
+        ]
+    )
+    return logging.getLogger(__name__)
 
+# Initialize logger
+logger = setup_logging()
 load_dotenv()
 
 # Configure logging
