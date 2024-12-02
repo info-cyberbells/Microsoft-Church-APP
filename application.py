@@ -50,8 +50,7 @@ def setup_logging():
 logger = setup_logging()
 load_dotenv()
 
-# Configure logging
-log_directory = "logs"
+log_directory = '/home/LogFiles'  
 if not os.path.exists(log_directory):
     os.makedirs(log_directory)
 
