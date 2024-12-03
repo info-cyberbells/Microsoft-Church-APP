@@ -342,6 +342,147 @@ async def translate_realtime():
         logger.error(f"Translation error: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+@app.route('/start_stream', methods=['POST'])
+def start_stream():
+    global is_streaming
+    if not is_streaming:
+        is_streaming = True
+        executor.submit(stream_audio)
+    return jsonify({"status": "started"})
+
+
+@app.route('/stop_stream', methods=['POST'])
+def stop_stream():
+    """Stop all streaming and processing"""
+    global is_streaming
+    try:
+        logger.info("Stopping stream processing")
+        is_streaming = False
+        
+        # Clear transcription queue
+        while not transcription_queue.empty():
+            try:
+                transcription_queue.get_nowait()
+            except queue.Empty:
+                break
+        
+        # Clear audio queue
+        while not audio_queue.empty():
+            try:
+                audio_queue.get_nowait()
+            except queue.Empty:
+                break
+        
+        # Notify all connected clients
+        for client_id in list(connected_clients.keys()):
+            try:
+                if client_id in connected_clients:
+                    connected_clients[client_id]['translation_queue'].put({
+                        'type': 'final',
+                        'translation': ''
+                    })
+            except Exception as e:
+                logger.error(f"Error notifying client {client_id}: {str(e)}")
+        
+        logger.info("Stream stopped successfully")
+        return jsonify({"status": "stopped"})
+    except Exception as e:
+        logger.error(f"Error stopping stream: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+def stream_audio():
+    """Handle continuous speech recognition and audio streaming"""
+    global is_streaming
+    speech_recognizer = None
+    stream = None
+    p = None
+    
+    try:
+        logger.info("Initializing speech recognition")
+        speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+        speech_config.speech_recognition_language = "en-US"
+        audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
+        
+        speech_recognizer = speechsdk.SpeechRecognizer(
+            speech_config=speech_config, 
+            audio_config=audio_config
+        )
+
+        def recognized_cb(evt):
+            if is_streaming:  # Only process if still streaming
+                try:
+                    text = evt.result.text
+                    logger.info(f"Speech recognized: {text}")
+                    logger.debug(f"Recognition result details: {evt.result}")
+                    transcription_queue.put({'text': text, 'is_final': True})
+                except Exception as e:
+                    logger.error(f"Error in recognition callback: {str(e)}")
+
+        def recognizing_cb(evt):
+            if is_streaming:  # Only process if still streaming
+                try:
+                    text = evt.result.text
+                    logger.debug(f"Speech recognizing: {text}")
+                    logger.debug(f"Recognition interim details: {evt.result}")
+                    transcription_queue.put({'text': text, 'is_final': False})
+                except Exception as e:
+                    logger.error(f"Error in recognizing callback: {str(e)}")
+
+        def canceled_cb(evt):
+            logger.warning(f"Speech recognition canceled: {evt.result.cancellation_details}")
+            
+        speech_recognizer.recognized.connect(recognized_cb)
+        speech_recognizer.recognizing.connect(recognizing_cb)
+        speech_recognizer.canceled.connect(canceled_cb)
+
+        logger.info("Starting continuous recognition")
+        speech_recognizer.start_continuous_recognition()
+        
+        try:
+            p = pyaudio.PyAudio()
+            stream = p.open(
+                format=FORMAT,
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                frames_per_buffer=CHUNK
+            )
+            
+            logger.info("Audio stream started")
+            while is_streaming:
+                try:
+                    data = stream.read(CHUNK, exception_on_overflow=False)
+                    audio_queue.put(data)
+                except Exception as e:
+                    logger.error(f"Error reading audio stream: {str(e)}", exc_info=True)
+                    break
+                
+        except Exception as e:
+            logger.error(f"Error in audio stream setup: {str(e)}", exc_info=True)
+        finally:
+            if stream:
+                stream.stop_stream()
+                stream.close()
+            if p:
+                p.terminate()
+            
+    except Exception as e:
+        logger.error(f"Critical error in stream_audio: {str(e)}", exc_info=True)
+    finally:
+        if speech_recognizer:
+            try:
+                speech_recognizer.stop_continuous_recognition()
+                logger.info("Speech recognition stopped")
+            except Exception as e:
+                logger.error(f"Error stopping speech recognition: {str(e)}")
+        
+        # Clear the audio queue
+        while not audio_queue.empty():
+            try:
+                audio_queue.get_nowait()
+            except queue.Empty:
+                break
+
 @app.route('/stream_transcription')
 def stream_transcription():
     """Stream transcription results"""
