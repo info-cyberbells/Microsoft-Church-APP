@@ -1,5 +1,6 @@
 import multiprocessing
 import os
+import ssl
 
 # Basic Configuration
 bind = "0.0.0.0:8000"
@@ -20,7 +21,7 @@ timeout = 300
 keepalive = 2
 graceful_timeout = 30
 
-# SSL Configuration (if needed)
+# SSL Configuration
 keyfile = None
 certfile = None
 
@@ -65,9 +66,9 @@ sendfile = True
 # Process Naming
 proc_name = None
 
-# SSL Options
-ssl_version = "TLS"
-cert_reqs = "CERT_NONE"
+# SSL Options - Corrected
+ssl_version = ssl.PROTOCOL_TLS
+cert_reqs = ssl.CERT_NONE
 ca_certs = None
 suppress_ragged_eofs = True
 
