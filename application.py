@@ -92,9 +92,11 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
         "origins": "*",
-        "allow_headers": "*",
-        "expose_headers": "*",
-        "methods": ["GET", "POST", "DELETE", "OPTIONS"]
+        "allow_headers": ["Content-Type", "Authorization", "Accept-Encoding", "X-Requested-With", "Cache-Control"],
+        "expose_headers": ["Content-Length", "X-Requested-With"],
+        "methods": ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+        "supports_credentials": True,
+        "max_age": 120
     }
 })
 
