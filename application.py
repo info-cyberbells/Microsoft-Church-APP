@@ -531,7 +531,7 @@ if __name__ == '__main__':
             )
         else:
             serve(app, 
-                host='127.0.0.1',
+                host='0.0.0.0',
                 port=5000,
                 threads=8)
     except Exception as e:
