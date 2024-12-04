@@ -13,3 +13,5 @@ attrs>=19.3.0
 chardet>=3.0.4,<4.0
 typing-extensions>=3.7.4
 flask[async]
+gevent>=22.10.2
+greenlet>=2.0.2
