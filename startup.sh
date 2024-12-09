@@ -8,4 +8,4 @@ mkdir -p "$HOME/LogFiles"
 chmod 755 "$HOME/LogFiles"
 
 # Start Gunicorn with gevent worker
-exec gunicorn --config=gunicorn.conf.py application:app
+exec gunicorn --config="$PWD/gunicorn.conf.py" application:app
