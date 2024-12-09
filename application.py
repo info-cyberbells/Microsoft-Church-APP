@@ -138,6 +138,7 @@ DEBOUNCE_DELAY = 1.0
 # Global variables
 is_streaming = False
 transcription_queue = Queue()
+audio_queue = queue.Queue()
 connected_clients = {}
 cleanup_done = False
 
