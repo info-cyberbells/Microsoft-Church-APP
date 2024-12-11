@@ -22,6 +22,11 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          apt-get install -y python3-pyaudio portaudio19-dev
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
