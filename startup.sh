@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install -y python3-pyaudio portaudio19-dev python3-dev build-essential
+apt-get update
+apt-get install -y python3-pyaudio portaudio19-dev python3-dev build-essential
 
 # Install gevent if not already installed
 pip install gevent
