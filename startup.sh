@@ -1,8 +1,5 @@
 #!/bin/bash
 
-apt-get update
-apt-get install -y portaudio19-dev python3-pyaudio
-
 # Install gevent if not already installed
 pip install gevent
 
