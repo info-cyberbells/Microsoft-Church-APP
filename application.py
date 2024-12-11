@@ -27,6 +27,7 @@ from threading import Lock, Thread
 import asyncio
 import base64
 from queue import Queue
+import pyaudio
 
 executor = ThreadPoolExecutor(max_workers=10)
 # Configure logging for Azure App Service
@@ -72,7 +73,7 @@ def setup_logging():
 logger = setup_logging()
 load_dotenv()
 
-log_directory = '/home/LogFiles'  
+log_directory = './logs/LogFiles'  
 if not os.path.exists(log_directory):
     os.makedirs(log_directory)
 
@@ -142,6 +143,12 @@ transcription_queue = Queue()
 audio_queue = queue.Queue()
 connected_clients = {}
 cleanup_done = False
+
+# Audio settings
+CHUNK = 1024
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 16000
 
 # CORS headers
 @app.after_request
