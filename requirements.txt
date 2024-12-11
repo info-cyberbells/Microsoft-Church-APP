@@ -15,4 +15,4 @@ typing-extensions>=3.7.4
 flask[async]
 gevent>=22.10.2
 greenlet>=2.0.2
-PyAudio==0.2.14
+PyAudio==0.2.13
