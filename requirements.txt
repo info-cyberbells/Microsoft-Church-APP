@@ -83,7 +83,7 @@ regex==2024.4.16
 requests==2.31.0
 requests-file==2.0.0
 rich==13.7.1
-scikit-image==0.23.2
+scikit-image==0.19.3
 scipy==1.13.1
 seaborn==0.13.2
 setuptools==70.0.0
